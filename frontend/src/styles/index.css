@@ -1,0 +1,441 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── ZAA Brand Color System ─────────────────────────────── */
+:root {
+  /* Primary ZAA Orange Palette (from logo) */
+  --zaa-orange:       #F4742B;
+  --zaa-orange-vivid: #FB7330;
+  --zaa-orange-dark:  #D3763D;
+  --zaa-orange-deep:  #C05E1E;
+  --zaa-amber:        #F5A94C;
+  --zaa-amber-light:  #FBCA7A;
+  --zaa-amber-dark:   #E08B2A;
+
+  /* Dark browns from logo giraffe/outline */
+  --zaa-brown-dark:   #3D1A0A;
+  --zaa-brown:        #6B2F0F;
+
+  /* Dark background palette */
+  --obsidian:    #0D0B09;
+  --charcoal:    #161210;
+  --surface:     #1E1916;
+  --surface-2:   #252018;
+  --surface-3:   #2E2820;
+
+  /* Border using brand orange tint */
+  --border:      rgba(244, 116, 43, 0.2);
+  --border-soft: rgba(244, 116, 43, 0.1);
+
+  /* Text */
+  --text-primary:   #F5EDE0;
+  --text-secondary: #C4A882;
+  --text-muted:     #7A6148;
+  --text-orange:    #F4742B;
+
+  /* Semantic */
+  --success: #27AE60;
+  --error:   #E74C3C;
+  --info:    #2980B9;
+  --warning: #F5A94C;
+
+  /* Transitions */
+  --transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ── Base Reset ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--obsidian);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.font-serif-display {
+  font-family: 'Playfair Display', serif;
+}
+.font-accent {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--charcoal); }
+::-webkit-scrollbar-thumb { background: var(--zaa-orange-dark); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--zaa-orange); }
+
+/* ── ZAA Gradient Text ────────────────────────────────────── */
+.zaa-text {
+  background: linear-gradient(135deg, #FB7330 0%, #F5A94C 40%, #F4742B 65%, #C05E1E 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: zaaShimmer 3.5s linear infinite;
+}
+
+/* Keep gold-text as alias for backwards compat */
+.gold-text {
+  background: linear-gradient(135deg, #FB7330 0%, #F5A94C 40%, #F4742B 65%, #C05E1E 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: zaaShimmer 3.5s linear infinite;
+}
+
+/* ── Glassmorphism ────────────────────────────────────────── */
+.glass {
+  background: rgba(30, 25, 22, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 116, 43, 0.15);
+}
+.glass-dark {
+  background: rgba(13, 11, 9, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(244, 116, 43, 0.12);
+}
+.glass-orange {
+  background: rgba(244, 116, 43, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(244, 116, 43, 0.25);
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.btn-zaa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #F4742B, #FB7330, #F5A94C, #F4742B);
+  background-size: 200% auto;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(244, 116, 43, 0.3);
+}
+.btn-zaa:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(244, 116, 43, 0.5);
+}
+.btn-zaa:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Legacy gold button alias */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #F4742B, #FB7330, #F5A94C, #F4742B);
+  background-size: 200% auto;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(244, 116, 43, 0.3);
+}
+.btn-gold:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(244, 116, 43, 0.5);
+}
+.btn-gold:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 30px;
+  background: transparent;
+  color: var(--zaa-orange);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border: 2px solid var(--zaa-orange);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.btn-outline:hover {
+  background: rgba(244, 116, 43, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(244, 116, 43, 0.25);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-ghost:hover {
+  color: var(--zaa-orange);
+  background: rgba(244, 116, 43, 0.08);
+}
+
+/* ── Form Elements ─────────────────────────────────────────── */
+.input-field {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid rgba(244, 116, 43, 0.2);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  transition: var(--transition);
+  outline: none;
+}
+.input-field:focus {
+  border-color: var(--zaa-orange);
+  background: rgba(244, 116, 43, 0.05);
+  box-shadow: 0 0 0 3px rgba(244, 116, 43, 0.12);
+}
+.input-field::placeholder { color: var(--text-muted); }
+.input-field option { background: var(--charcoal); color: var(--text-primary); }
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ── Card ───────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.card:hover {
+  border-color: rgba(244, 116, 43, 0.45);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 48px rgba(244, 116, 43, 0.15), 0 4px 16px rgba(0,0,0,0.4);
+}
+
+/* ── Section Eyebrow ────────────────────────────────────────── */
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--zaa-orange);
+  margin-bottom: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+.section-eyebrow::before, .section-eyebrow::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--zaa-orange), var(--zaa-amber));
+  border-radius: 2px;
+}
+
+/* ── Animations ──────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes zaaShimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: -200% center; }
+}
+@keyframes float {
+  0%,100% { transform: translateY(0px); }
+  50%     { transform: translateY(-10px); }
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50%     { opacity: 0.55; }
+}
+@keyframes zoomIn {
+  from { transform: scale(0.94); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+@keyframes kenBurns {
+  0%   { transform: scale(1) translateX(0); }
+  50%  { transform: scale(1.06) translateX(-1.5%); }
+  100% { transform: scale(1) translateX(0); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes slideInRight {
+  from { transform: translateX(60px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+@keyframes zaaGlow {
+  0%,100% { box-shadow: 0 0 20px rgba(244,116,43,0.3); }
+  50%     { box-shadow: 0 0 40px rgba(244,116,43,0.6); }
+}
+
+.animate-fade-up      { animation: fadeInUp 0.65s ease forwards; }
+.animate-fade-in      { animation: fadeIn 0.5s ease forwards; }
+.animate-float        { animation: float 4.5s ease-in-out infinite; }
+.animate-pulse-slow   { animation: pulse 2.5s ease-in-out infinite; }
+.animate-zoom-in      { animation: zoomIn 0.4s ease forwards; }
+.animate-ken-burns    { animation: kenBurns 14s ease infinite; }
+.animate-glow         { animation: zaaGlow 2.5s ease-in-out infinite; }
+
+/* ── Spinner ──────────────────────────────────────────────────── */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(244, 116, 43, 0.2);
+  border-top-color: var(--zaa-orange);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+/* ── Modal ────────────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(8, 6, 4, 0.88);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+.modal-content {
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid rgba(244, 116, 43, 0.2);
+  border-radius: 20px;
+  animation: zoomIn 0.35s ease;
+  position: relative;
+}
+
+/* ── ZAA Brand Gradient BGs ──────────────────────────────────── */
+.bg-zaa-gradient {
+  background: linear-gradient(135deg, #F4742B 0%, #FB7330 35%, #F5A94C 65%, #D3763D 100%);
+}
+.bg-zaa-dark-gradient {
+  background: linear-gradient(135deg, var(--obsidian) 0%, #1A1008 50%, #0D0B09 100%);
+}
+.bg-zaa-subtle {
+  background: linear-gradient(135deg, rgba(244,116,43,0.08) 0%, rgba(245,169,76,0.04) 100%);
+}
+
+/* ── ZAA Divider ──────────────────────────────────────────────── */
+.zaa-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--zaa-orange), var(--zaa-amber), var(--zaa-orange), transparent);
+  border-radius: 2px;
+}
+
+/* ── Logo image sizing ──────────────────────────────────────────── */
+.zaa-logo-img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+.zaa-logo-img-sm {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ── Tag / Badge ──────────────────────────────────────────────── */
+.zaa-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: rgba(244, 116, 43, 0.1);
+  border: 1px solid rgba(244, 116, 43, 0.25);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--zaa-orange);
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ── Stat Card glow on hover ──────────────────────────────────── */
+.stat-card:hover {
+  box-shadow: 0 0 0 1px rgba(244,116,43,0.3), 0 12px 40px rgba(244,116,43,0.12);
+}
+
+/* ── Responsive utilities ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+}
