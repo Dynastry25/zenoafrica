@@ -35,21 +35,33 @@ const errorHandler = require('./backend/src/middleware/error.middleware');
 
 const app = express();
 
-// ─── Database Connection ────────────────────────────────────
-let isConnected = false;
+// ─── Database Connection (lazy for Vercel, eager for local) ─
+let dbReady = null;
 
-async function connectDB() {
-  if (isConnected) return;
-  try {
-    await mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URI, {
+function connectDB() {
+  if (!dbReady) {
+    dbReady = mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+    }).then(() => {
+      console.log('✅ MongoDB Atlas Connected');
+      return mongoose;
     });
-    isConnected = true;
-    console.log('✅ MongoDB Atlas Connected');
-  } catch (err) {
-    console.error('❌ MongoDB connection error:', err.message);
   }
+  return dbReady;
+}
+
+// ─── Middleware to ensure DB connected (Vercel serverless) ───
+if (process.env.VERCEL) {
+  app.use(async (req, res, next) => {
+    try {
+      await connectDB();
+      next();
+    } catch (err) {
+      console.error('❌ DB connection failed:', err.message);
+      res.status(503).json({ success: false, message: 'Database unavailable' });
+    }
+  });
 }
 
 // ─── General Middleware ─────────────────────────────────────
@@ -115,7 +127,8 @@ app.use(`${API}/upload`, uploadRoutes);
 app.use(`${API}/contact`, contactRoutes);
 
 // ─── Health Check ───────────────────────────────────────────
-app.get('/health', (req, res) => {
+app.get('/health', async (req, res) => {
+  await connectDB();
   res.status(200).json({
     success: true,
     message: 'Zeno Africa Adventures API is running',
@@ -125,36 +138,34 @@ app.get('/health', (req, res) => {
   });
 });
 
-// ─── Serve Frontend Build ───────────────────────────────────
-const frontendBuild = path.join(__dirname, 'frontend', 'dist');
-app.use(express.static(frontendBuild));
+// ─── Serve Frontend Build (local dev / production server only)
+if (!process.env.VERCEL) {
+  const frontendBuild = path.join(__dirname, 'frontend', 'dist');
+  app.use(express.static(frontendBuild));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(frontendBuild, 'index.html'));
-});
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(frontendBuild, 'index.html'));
+  });
+}
 
 // ─── Error Handler ──────────────────────────────────────────
 app.use(errorHandler);
 
 // ─── Connect DB then Start Server (local dev only) ──────────
 if (!process.env.VERCEL) {
-  mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log('✅ MongoDB Atlas Connected');
-    const PORT = process.env.PORT || 5000;
-    app.listen(PORT, () => {
-      console.log(`\n🚀 Zeno Africa Adventures API`);
-      console.log(`   Running on port ${PORT} [${process.env.NODE_ENV || 'development'}]`);
-      console.log(`   Health: http://localhost:${PORT}/health\n`);
+  connectDB()
+    .then(() => {
+      const PORT = process.env.PORT || 5000;
+      app.listen(PORT, () => {
+        console.log(`\n🚀 Zeno Africa Adventures API`);
+        console.log(`   Running on port ${PORT} [${process.env.NODE_ENV || 'development'}]`);
+        console.log(`   Health: http://localhost:${PORT}/health\n`);
+      });
+    })
+    .catch((err) => {
+      console.error('❌ MongoDB connection error:', err.message);
+      process.exit(1);
     });
-  })
-  .catch((err) => {
-    console.error('❌ MongoDB connection error:', err.message);
-    process.exit(1);
-  });
 }
 
 export default app;
