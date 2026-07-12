@@ -36,15 +36,21 @@ const errorHandler = require('./backend/src/middleware/error.middleware');
 const app = express();
 
 // ─── Database Connection ────────────────────────────────────
-mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('✅ MongoDB Atlas Connected'))
-.catch((err) => {
-  console.error('❌ MongoDB connection error:', err.message);
-  process.exit(1);
-});
+let isConnected = false;
+
+async function connectDB() {
+  if (isConnected) return;
+  try {
+    await mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    isConnected = true;
+    console.log('✅ MongoDB Atlas Connected');
+  } catch (err) {
+    console.error('❌ MongoDB connection error:', err.message);
+  }
+}
 
 // ─── General Middleware ─────────────────────────────────────
 app.use(cors({
@@ -74,7 +80,7 @@ const limiter = rateLimit({
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 20,
-  message: { success: false, message: 'Too many auth attempts. Please try again in 1 hour.' },
+  message: { success: false, message: 'Too many auth attempts. Please try again later.' },
 });
 
 app.use('/api/', limiter);
@@ -130,21 +136,25 @@ app.get('*', (req, res) => {
 // ─── Error Handler ──────────────────────────────────────────
 app.use(errorHandler);
 
-// ─── Start Server ───────────────────────────────────────────
-const PORT = process.env.PORT || 5000;
-const server = app.listen(PORT, () => {
-  console.log(`\n🚀 Zeno Africa Adventures API`);
-  console.log(`   Running on port ${PORT} [${process.env.NODE_ENV || 'development'}]`);
-  console.log(`   Health: http://localhost:${PORT}/health\n`);
-});
-
-process.on('unhandledRejection', (err) => {
-  console.error('❌ Unhandled Rejection:', err.message);
-  server.close(() => process.exit(1));
-});
-process.on('uncaughtException', (err) => {
-  console.error('❌ Uncaught Exception:', err.message);
-  process.exit(1);
-});
+// ─── Connect DB then Start Server (local dev only) ──────────
+if (!process.env.VERCEL) {
+  mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log('✅ MongoDB Atlas Connected');
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => {
+      console.log(`\n🚀 Zeno Africa Adventures API`);
+      console.log(`   Running on port ${PORT} [${process.env.NODE_ENV || 'development'}]`);
+      console.log(`   Health: http://localhost:${PORT}/health\n`);
+    });
+  })
+  .catch((err) => {
+    console.error('❌ MongoDB connection error:', err.message);
+    process.exit(1);
+  });
+}
 
 export default app;
