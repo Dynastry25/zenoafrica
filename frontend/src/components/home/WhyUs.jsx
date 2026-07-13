@@ -17,8 +17,8 @@ const reasons = [
 
 export default function WhyUs() {
   return (
-    <section className="py-24 overflow-hidden" style={{ background: '#ebeaea' }}>
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-16 md:py-24 overflow-hidden" style={{ background: '#ebeaea' }}>
+      <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
 
           {/* ── Image collage ── */}
@@ -27,7 +27,7 @@ export default function WhyUs() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative h-[420px] lg:h-[560px]"
+            className="relative h-[300px] sm:h-[420px] lg:h-[560px]"
           >
             <img
               src="https://images.unsplash.com/photo-1547970810-dc1eac37d174?w=600&q=80"
@@ -44,7 +44,7 @@ export default function WhyUs() {
 
             {/* Floating stat card */}
             <div
-              className="absolute bottom-[28%] -left-4 md:-left-8 animate-float"
+              className="absolute bottom-[28%] left-0 md:-left-8 animate-float"
               style={{
                 background: 'rgba(13,11,9,0.82)',
                 backdropFilter: 'blur(20px)',
@@ -60,7 +60,7 @@ export default function WhyUs() {
                 className="text-3xl font-black"
                 style={{ color: '#F4742B', fontFamily: 'Montserrat', lineHeight: 1 }}
               >
-                15+
+                10+
               </div>
               <div className="text-sm font-medium mt-1" style={{ color: '#C4A882' }}>
                 Years of Excellence
@@ -98,7 +98,7 @@ export default function WhyUs() {
               Travel Partner
             </h2>
             <p className="text-base leading-relaxed mb-9" style={{ color: '#272625' }}>
-              For over 15 years, Zeno Africa Adventures has been crafting extraordinary journeys across
+              For over 10 years, Zeno Africa Adventures has been crafting extraordinary journeys across
               the continent. Our deep local knowledge, handpicked guides, and uncompromising commitment
               to excellence set us apart.
             </p>

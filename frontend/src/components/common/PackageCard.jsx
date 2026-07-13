@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
-import { FiMapPin, FiClock, FiUsers, FiStar } from 'react-icons/fi';
+import { FiMapPin, FiClock, FiStar } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa6';
 import toast from 'react-hot-toast';
 import { setCartPackage } from '../../redux/slices/bookingSlice';
 import { openModal } from '../../redux/slices/uiSlice';
@@ -45,8 +46,6 @@ export default function PackageCard({ pkg, index = 0 }) {
     dispatch(openModal('booking'));
   };
 
-  const price        = pkg.price?.adult || pkg.price;
-  const originalPrice = pkg.originalPrice;
   const duration     = pkg.duration
     ? `${pkg.duration.days} Days / ${pkg.duration.nights} Nights`
     : pkg.duration;
@@ -185,39 +184,29 @@ export default function PackageCard({ pkg, index = 0 }) {
             </div>
           )}
 
-          {/* Price + CTA */}
-          <div className="flex items-end justify-between">
-            <div>
-              <div
-                className="text-[10px] font-bold tracking-widest uppercase mb-0.5"
-                style={{ color: '#7A6148', fontFamily: 'Montserrat' }}
-              >
-                FROM
-              </div>
-              <div className="flex items-baseline gap-2">
-                <span
-                  className="text-2xl font-black"
-                  style={{ color: '#F4742B', fontFamily: 'Montserrat' }}
-                >
-                  {formatPrice(price)}
-                </span>
-                {originalPrice && (
-                  <span
-                    className="text-sm line-through"
-                    style={{ color: '#7A6148' }}
-                  >
-                    {formatPrice(originalPrice)}
-                  </span>
-                )}
-              </div>
-              <div className="text-[11px]" style={{ color: '#7A6148' }}>per person</div>
-            </div>
+          {/* CTA Buttons */}
+          <div className="flex gap-2">
             <button
               onClick={handleBookNow}
-              className="btn-gold text-xs px-5 py-2.5"
+              className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-xs uppercase tracking-wide btn-gold"
             >
               Book Now
             </button>
+            <a
+              href={`https://wa.me/255674448795?text=${encodeURIComponent(`Hi, I'm interested in the "${pkg.title}" package. Please send me more details.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-xs uppercase tracking-wide transition-all duration-300"
+              style={{
+                background: 'linear-gradient(135deg, #25D366, #128C7E)',
+                color: '#ffffff',
+                fontFamily: 'Montserrat',
+              }}
+            >
+              <FaWhatsapp size={16} />
+              WhatsApp
+            </a>
           </div>
         </div>
       </Link>

@@ -48,7 +48,7 @@ export default function PackageDetailPage() {
   return (
     <div className="pt-20">
       {/* Hero Image */}
-      <div className="relative h-[50vh] min-h-[400px]">
+      <div className="relative h-[40vh] min-h-[280px] md:min-h-[400px]">
         <img src={images[activeImage] || images[0]} alt={pkg.title} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent" />
 
@@ -74,7 +74,7 @@ export default function PackageDetailPage() {
 
       {/* Thumbnail strip */}
       {images.length > 1 && (
-        <div className="max-w-7xl mx-auto px-6 -mt-2 relative z-10">
+        <div className="max-w-5xl mx-auto px-6 -mt-2 relative z-10">
           <div className="flex gap-3 overflow-x-auto pb-4 pt-4">
             {images.map((img, i) => (
               <button key={i} onClick={() => setActiveImage(i)} className="flex-shrink-0">
@@ -85,7 +85,7 @@ export default function PackageDetailPage() {
         </div>
       )}
 
-      <div className="max-w-7xl mx-auto px-6 py-12 grid lg:grid-cols-[1fr_380px] gap-12">
+      <div className="max-w-7xl mx-auto px-6 py-12 grid lg:grid-cols-[1fr_380px] gap-6 lg:gap-12">
         {/* Main content */}
         <div>
           {/* Tabs */}

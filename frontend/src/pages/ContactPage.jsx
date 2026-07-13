@@ -8,7 +8,7 @@ import { Spinner } from '../components/common/Common';
 const contactInfo = [
   { icon: FiPhone, label: 'Phone / WhatsApp', value: '0674 448 795', sub: 'Mon–Sat, 8am–8pm SAST' },
   { icon: FiMail, label: 'Email', value: 'zenoafricaadventures@gmail.com', sub: 'Replies within 2 hours' },
-  { icon: FiMapPin, label: 'Location', value: 'Johannesburg, South Africa', sub: 'Serving all of Africa' },
+  { icon: FiMapPin, label: 'Location', value: 'Dar es Salaam, Tanzania', sub: 'Serving all of Africa' },
   { icon: FiClock, label: 'Business Hours', value: 'Mon–Sat: 8am–8pm', sub: 'Sun: 10am–4pm SAST' },
 ];
 
@@ -42,7 +42,7 @@ export default function ContactPage() {
       </div>
 
       <section className="py-20 bg-obsidian">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-8 lg:gap-14">
           {/* Form */}
           <div>
             <h2 className="text-2xl md:text-3xl font-black mb-2">Send us a <span className="zaa-text">Message</span></h2>

@@ -36,14 +36,14 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-24" id="services" style={{ background: 'linear-gradient(135deg, rgba(244,116,43,0.03) 0%, #f1f1f1 100%)' }}>
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-6 md:py-8" id="services" style={{ background: 'linear-gradient(135deg, rgba(244,116,43,0.03) 0%, #f1f1f1 100%)' }}>
+      <div className="max-w-6xl mx-auto px-6">
 
         {/* Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
           <div className="section-eyebrow justify-center">What We Offer</div>
           <h2
-            className="text-4xl md:text-5xl font-black mb-5"
+            className="text-4xl md:text-2xl font-black mb-5"
             style={{ fontFamily: 'Montserrat' }}
           >
             Premium{' '}

@@ -13,8 +13,8 @@ const duplicated = [...partners, ...partners];
 
 export default function Partners() {
   return (
-    <section className="py-20 overflow-hidden">
-      <div className="max-w-xl mx-auto px-4 mb-10">
+    <section className="py-10 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 mb-10">
         <SectionHeading
           eyebrow="Trusted By"
           title="Our"
@@ -25,8 +25,8 @@ export default function Partners() {
 
       <div className="relative">
         {/* Gradient fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"  />
-        <div className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"  />
+        <div className="absolute left-0 top-0 bottom-0 w-12 md:w-32 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, var(--obsidian), transparent)' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-12 md:w-32 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, var(--obsidian), transparent)' }} />
 
         {/* Row 1 — left to right */}
         <div className="flex animate-marquee mb-6">

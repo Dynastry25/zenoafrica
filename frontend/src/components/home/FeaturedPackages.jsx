@@ -17,11 +17,11 @@ export default function FeaturedPackages() {
   }, [dispatch]);
 
   return (
-    <section className="py-24" style={{ background: '#fff' }}>
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-6 md:py-8" style={{ background: '#fff' }}>
+      <div className="max-w-6xl mx-auto px-6">
 
         {/* Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
           <div className="section-eyebrow justify-center">Featured Experiences</div>
           <h2
             className="text-4xl md:text-5xl font-black mb-5"
@@ -31,7 +31,7 @@ export default function FeaturedPackages() {
             <span className="zaa-text">African Journeys</span>
           </h2>
           <p className="text-base leading-relaxed" style={{ color: '#3d372e' }}>
-            Each itinerary is meticulously designed by our expert travel architects — combining luxury,
+            Each itinerary is meticulously designed by our expert travel architects combining luxury,
             authenticity, and unforgettable wildlife encounters.
           </p>
         </div>

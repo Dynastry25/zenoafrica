@@ -60,7 +60,7 @@ export default function AuthModal() {
         animate={{ scale: 1, opacity: 1 }}
         className="modal-content w-full max-w-md relative"
       >
-        <div className="p-8">
+        <div className="p-5 sm:p-8">
           <button onClick={handleClose} className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-secondary hover:text-zaa-orange transition-colors">
             <FiX size={16} />
           </button>
@@ -80,7 +80,7 @@ export default function AuthModal() {
                   <label className="form-label">Full Name</label>
                   <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="John Doe" className="input-field" required />
                 </div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <label className="form-label">Phone</label>
                     <input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+1 234 567 8900" className="input-field" />

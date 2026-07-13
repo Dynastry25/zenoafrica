@@ -224,7 +224,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[850] flex flex-col px-6 pt-28 pb-10"
+            className="fixed inset-0 z-[850] flex flex-col px-6 pt-24 sm:pt-28 pb-10 overflow-y-auto"
             style={{ background: 'rgba(13,11,9,0.98)', backdropFilter: 'blur(24px)' }}
           >
             {/* Mobile logo */}

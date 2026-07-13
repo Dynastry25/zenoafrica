@@ -58,7 +58,7 @@ export default function PackagesPage() {
           Explore <span className="zaa-text">All Packages</span>
         </h1>
         <p className="text-base text-secondary max-w-lg mx-auto px-6">
-          Extraordinary journeys across Africa — from budget-friendly escapes to ultra-luxury expeditions.
+          Extraordinary journeys across Africa from budget-friendly escapes to ultra-luxury expeditions.
         </p>
       </div>
 
@@ -126,7 +126,7 @@ export default function PackagesPage() {
             </div>
 
             {totalPages > 1 && (
-              <div className="flex justify-center gap-2 mt-12">
+              <div className="flex justify-center flex-wrap gap-2 mt-12">
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
                   <button
                     key={p}

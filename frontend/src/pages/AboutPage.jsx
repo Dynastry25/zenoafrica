@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const stats = [
   { value: '2,400+', label: 'Happy Travelers', icon: '✈' },
-  { value: '15+', label: 'Years of Excellence', icon: '★' },
+  { value: '10+', label: 'Years of Excellence', icon: '★' },
   { value: '48', label: 'African Destinations', icon: '🌍' },
   { value: '99%', label: 'Satisfaction Rate', icon: '♡' },
 ];
@@ -20,7 +20,7 @@ export default function AboutPage() {
         background: ' #f1f1f1',
       }} className="pt-20">
       {/* Hero */}
-      <div className="relative py-28 overflow-hidden">
+      <div className="relative py-16 md:py-28 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&q=80)', filter: 'brightness(0.25)' }}
@@ -28,7 +28,7 @@ export default function AboutPage() {
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <div className="section-eyebrow justify-center">Our Story</div>
           <h1 className="text-4xl md:text-7xl font-black mb-5" style={{ fontFamily:"Montserrat" }}>
-            15 Years of <span className="zaa-text">African Excellence</span>
+            10 Years of <span className="zaa-text">African Excellence</span>
           </h1>
           <p className="text-base md:text-lg text-secondary leading-relaxed">
             Born from a deep love of Africa and its people, Zeno Africa Adventures was founded in 2009 with a singular mission: to connect the world with Africa's most extraordinary places in a way that is authentic, responsible, and truly unforgettable.
@@ -52,7 +52,7 @@ export default function AboutPage() {
       {/* Mission */}
       <section style={{
         background: ' linear-gradient(135deg, rgba(244,116,43,0.03) 0%, #f1f1f1 100%)',
-      }} className="py-24 bg-obsidian">
+      }} className="py-16 md:py-24 bg-obsidian">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="section-eyebrow justify-center">Our Mission</div>
           <h2 className=" text-muted text-3xl md:text-5xl font-black mb-6">
@@ -68,9 +68,9 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-24 ">
+      <section className="py-16 md:py-24 ">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
             <div className="section-eyebrow justify-center">Our People</div>
             <h2 className="text-muted text-3xl md:text-5xl font-black">Meet the <span className="zaa-text">Dream Team</span></h2>
           </div>

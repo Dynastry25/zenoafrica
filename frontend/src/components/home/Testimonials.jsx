@@ -43,13 +43,13 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="py-24" style={{ background:' #ebeaea' }}>
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-6 md:py-8" style={{ background:' #ebeaea' }}>
+      <div className="max-w-6xl mx-auto px-6">
 
         {/* Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-6 md:mb-6">
           <div className="section-eyebrow justify-center">Guest Stories</div>
-          <h2 className="text-4xl md:text-5xl font-black" style={{ fontFamily: 'Montserrat', color: '#636363' }}>
+          <h2 className="text-2xl md:text-2xl font-black" style={{ fontFamily: 'Montserrat', color: '#636363' }}>
             Voices from <span className="zaa-text">Our Travelers</span>
           </h2>
         </div>

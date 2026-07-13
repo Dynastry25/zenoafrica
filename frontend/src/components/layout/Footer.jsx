@@ -33,7 +33,7 @@ export default function Footer() {
       <div className="h-1 bg-zaa-gradient w-full" />
 
       <div className="max-w-7xl mx-auto px-6 pt-16 pb-0">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-14">
 
           {/* ── Brand ── */}
           <div className="lg:col-span-1 md:col-span-2">
@@ -152,7 +152,7 @@ export default function Footer() {
           <p style={{ fontFamily: 'Montserrat' }}>
             © {new Date().getFullYear()} Zeno Africa Adventures. All rights reserved.
           </p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-4 md:gap-6 justify-center">
             {[
               { label: 'Privacy Policy', to: '/privacy' },
               { label: 'Terms of Service', to: '/terms' },

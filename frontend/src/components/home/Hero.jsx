@@ -93,8 +93,8 @@ export default function Hero() {
 
       {/* ── Content ── */}
       <div
-        className="relative z-10 h-full flex flex-col justify-center max-w-auto mx-auto px-20"
-        style={{ paddingTop: 50 }}
+        className="relative z-10 h-full flex flex-col justify-center max-w-auto mx-auto px-4 sm:px-6 md:px-20"
+        style={{ paddingTop: 40 }}
       >
         {/* Slide label */}
         <AnimatePresence mode="wait">
@@ -126,7 +126,7 @@ export default function Hero() {
             transition={{ duration: 0.65 }}
             className="font-black leading-[1.03] mb-2"
             style={{
-              fontSize: 'clamp(28px, 8.5vw, 44px)',
+              fontSize: 'clamp(28px, 5.5vw, 44px)',
               fontFamily: 'Montserrat',
               color: '#F5EDE0',
             }}

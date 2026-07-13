@@ -17,14 +17,14 @@ export function VisaSection() {
   const dispatch = useDispatch();
   return (
     <section
-      className="py-24"
+      className="py-2 md:py-8"
       id="visa"
       style={{
         background: 'linear-gradient(135deg, rgba(244,116,43,0.03) 0%, #f1f1f1 100%)',
       }}
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -116,7 +116,7 @@ export function CtaBand() {
 
   return (
     <section
-      className="py-20"
+      className="py-14 md:py-20"
       style={{
         background: 'linear-gradient(135deg, rgba(244,116,43,0.07) 0%, rgba(245,169,76,0.03) 100%)',
         borderTop: '1px solid rgba(244,116,43,0.15)',

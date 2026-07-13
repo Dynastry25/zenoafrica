@@ -63,7 +63,7 @@ export default function DashboardOverview() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.05 }}
-              className="glass rounded-2xl p-5 flex items-center gap-4"
+              className="glass rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4"
             >
               <img src={b.package?.coverImage?.url} alt="" className="w-16 h-16 rounded-xl object-cover flex-shrink-0" />
               <div className="flex-1">
