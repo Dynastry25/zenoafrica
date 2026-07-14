@@ -7,6 +7,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import ModalRouter from './components/layout/ModalRouter';
 import ProtectedRoute from './components/common/ProtectedRoute';
+import WhatsAppFloat from './components/common/WhatsAppFloat';
 import { fetchCurrentUser } from './redux/slices/authSlice';
 
 // Public pages
@@ -106,6 +107,7 @@ export default function App() {
           error: { iconTheme: { primary: '#E74C3C', secondary: '#0D0D0D' } },
         }}
       />
+      {!isAdmin && <WhatsAppFloat />}
     </div>
   );
 }
