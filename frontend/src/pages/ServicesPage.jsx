@@ -10,7 +10,7 @@ export default function ServicesPage() {
           Our <span className="zaa-text">Services</span>
         </h1>
         <p className="text-base text-secondary max-w-lg mx-auto px-6">
-          End-to-end travel services — from visa to safari, we handle every detail of your African adventure.
+          End-to-end travel services from visa to safari, we handle every detail of your African adventure.
         </p>
       </div>
       <Services />

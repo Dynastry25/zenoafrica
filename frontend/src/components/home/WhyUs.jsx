@@ -60,7 +60,7 @@ export default function WhyUs() {
                 className="text-3xl font-black"
                 style={{ color: '#F4742B', fontFamily: 'Montserrat', lineHeight: 1 }}
               >
-                10+
+                5+
               </div>
               <div className="text-sm font-medium mt-1" style={{ color: '#C4A882' }}>
                 Years of Excellence
@@ -98,7 +98,7 @@ export default function WhyUs() {
               Travel Partner
             </h2>
             <p className="text-base leading-relaxed mb-9" style={{ color: '#272625' }}>
-              For over 10 years, Zeno Africa Adventures has been crafting extraordinary journeys across
+              For over 5 years, Zeno Africa Adventures has been crafting extraordinary journeys across
               the continent. Our deep local knowledge, handpicked guides, and uncompromising commitment
               to excellence set us apart.
             </p>

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const stats = [
   { value: '2,400+', label: 'Happy Travelers', icon: '✈' },
-  { value: '10+', label: 'Years of Excellence', icon: '★' },
+  { value: '5+', label: 'Years of Excellence', icon: '★' },
   { value: '48', label: 'African Destinations', icon: '🌍' },
   { value: '99%', label: 'Satisfaction Rate', icon: '♡' },
 ];
@@ -28,7 +28,7 @@ export default function AboutPage() {
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <div className="section-eyebrow justify-center">Our Story</div>
           <h1 className="text-4xl md:text-7xl font-black mb-5" style={{ fontFamily:"Montserrat" }}>
-            10 Years of <span className="zaa-text">African Excellence</span>
+            5 Years of <span className="zaa-text">African Excellence</span>
           </h1>
           <p className="text-base md:text-lg text-secondary leading-relaxed">
             Born from a deep love of Africa and its people, Zeno Africa Adventures was founded in 2009 with a singular mission: to connect the world with Africa's most extraordinary places in a way that is authentic, responsible, and truly unforgettable.

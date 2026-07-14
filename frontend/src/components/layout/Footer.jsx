@@ -32,7 +32,7 @@ export default function Footer() {
       {/* Top orange accent bar */}
       <div className="h-1 bg-zaa-gradient w-full" />
 
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-0">
+      <div className="max-w-6xl mx-auto px-6 pt-16 pb-0">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-14">
 
           {/* ── Brand ── */}
@@ -122,7 +122,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3.5 text-sm" style={{ color: '#7A6148' }}>
               <div className="flex items-center gap-2.5">
                 <FiPhone style={{ color: '#F4742B' }} size={14} />
-                <span>0674 448 795</span>
+                <span>+255 718 004 525</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <FiMail style={{ color: '#F4742B', flexShrink: 0, marginTop: 2 }} size={14} />

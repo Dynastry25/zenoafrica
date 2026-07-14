@@ -50,7 +50,7 @@ export default function Services() {
             <span className="zaa-text">Travel Services</span>
           </h2>
           <p className="text-base leading-relaxed" style={{ color: '#C4A882' }}>
-            From first-class flights to exclusive safari permits — we handle every detail so you can
+            From first-class flights to exclusive safari permits we handle every detail so you can
             simply experience Africa.
           </p>
         </div>
