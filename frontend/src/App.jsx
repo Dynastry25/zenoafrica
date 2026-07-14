@@ -16,7 +16,8 @@ import PackageDetailPage from './pages/PackageDetailPage';
 import ServicesPage from './pages/ServicesPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
-import HotelsPage from './pages/HotelsPage';
+import PartnersPage from './pages/PartnersPage';
+import PartnerDetailPage from './pages/PartnerDetailPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { PrivacyPolicyPage, TermsPage, RefundPolicyPage } from './pages/LegalPages';
 
@@ -52,7 +53,8 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/packages" element={<PackagesPage />} />
           <Route path="/packages/:slug" element={<PackageDetailPage />} />
-          <Route path="/hotels" element={<HotelsPage />} />
+          <Route path="/partners" element={<PartnersPage />} />
+          <Route path="/partners/:slug" element={<PartnerDetailPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />

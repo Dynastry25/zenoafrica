@@ -7,7 +7,7 @@ const exploreLinks = [
   { label: 'Safari Packages',   to: '/packages?category=safari' },
   { label: 'Luxury Retreats',   to: '/packages?category=luxury' },
   { label: 'Adventure Tours',   to: '/packages?category=adventure' },
-  { label: 'Hotels & Lodges',   to: '/hotels' },
+  { label: 'Our Partners',       to: '/partners' },
   { label: 'Visa Services',     to: '/services#visa' },
 ];
 const destinationLinks = [

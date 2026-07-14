@@ -13,7 +13,7 @@ import { fetchNotifications } from '../../redux/slices/notificationSlice';
 const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'Packages', to: '/packages' },
-  { label: 'Hotels', to: '/hotels' },
+  { label: 'Partners', to: '/partners' },
   { label: 'Services', to: '/services' },
   { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
