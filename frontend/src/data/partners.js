@@ -66,6 +66,39 @@ const partners = [
     website: 'https://www.qatarairways.com',
     category: 'Airline',
   },
+  {
+    slug: 'flightlink',
+    name: 'Flightlink',
+    logo: '/images/partners/flightlink.png',
+    tagline: 'Dreams Delivered',
+    description:
+      'Flightlink is a Tanzania-based airline founded in 2004, providing domestic and regional scheduled flights, air charters, and medevac services across Tanzania and Kenya. With a focus on connecting safari destinations and the Zanzibar archipelago, Flightlink is a key partner for reaching Tanzania\'s most remote and breathtaking locations.',
+    highlights: ['Tanzania Domestic Flights', 'Safari Connections', 'Zanzibar Routes', 'Air Charters'],
+    website: 'https://flightlink.co.tz',
+    category: 'Airline',
+  },
+  {
+    slug: 'auric-air',
+    name: 'Auric Air',
+    logo: '/images/partners/auric-air.png',
+    tagline: 'Tanzania\'s Premier Safari Carrier',
+    description:
+      'Auric Air Services Limited is a privately owned Tanzanian airline founded in 2001, recognized as Tanzania\'s Premier Safari Carrier. Having won the World Travel Awards as Tanzania\'s Leading Domestic Safari Carrier for nearly a decade, Auric Air operates scheduled flights to 42+ destinations within East Africa using Cessna Caravans, Dash 8s, and Pilatus PC-12s.',
+    highlights: ['World Travel Awards Winner', '42+ Destinations', 'Safari Specialist', 'Charter Services'],
+    website: 'https://www.auricair.com',
+    category: 'Airline',
+  },
+  {
+    slug: 'satguru',
+    name: 'Satguru Travels',
+    logo: '/images/partners/satguru.jpg',
+    tagline: '360° Travel Solutions',
+    description:
+      'Satguru Travel and Tours Services Ltd. is one of the world\'s largest travel management companies, established in 1989 in Kigali, Rwanda. With 140+ branches in 80+ countries and 4,000+ employees, Satguru specializes in corporate travel management, providing end-to-end solutions including flights, hotels, car rentals, visa services, and holiday packages.',
+    highlights: ['Global Presence', '140+ Branches', 'Corporate Travel', 'Full-Service Travel Management'],
+    website: 'https://satgurutravel.com',
+    category: 'Travel Management',
+  },
 
 ];
 
