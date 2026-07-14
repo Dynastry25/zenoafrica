@@ -31,14 +31,12 @@ const errorHandler = require('./middleware/error.middleware');
 const app = express();
 
 // ─── Database Connection ────────────────────────────────────
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('✅ MongoDB Atlas Connected'))
 .catch((err) => {
   console.error('❌ MongoDB connection error:', err.message);
-  process.exit(1);
+  console.error('   Server will start but API requests requiring DB will fail.');
+  console.error('   Fix: Whitelist your IP in MongoDB Atlas → Network Access → Add IP Address.');
 });
 
 // ─── General Middleware ─────────────────────────────────────

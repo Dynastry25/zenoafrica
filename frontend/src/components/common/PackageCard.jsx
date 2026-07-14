@@ -74,6 +74,7 @@ export default function PackageCard({ pkg, index = 0 }) {
           : 'none',
       }}
     >
+      {/* Image & Content — clickable */}
       <Link to={`/packages/${pkg.slug}`} className="block">
         {/* Image */}
         <div className="relative h-60 overflow-hidden">
@@ -184,8 +185,12 @@ export default function PackageCard({ pkg, index = 0 }) {
             </div>
           )}
 
-          {/* CTA Buttons */}
-          <div className="flex gap-2">
+        </div>
+      </Link>
+
+      {/* CTA Buttons */}
+      <div className="p-6 pt-0">
+        <div className="flex gap-2">
             <button
               onClick={handleBookNow}
               className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-xs uppercase tracking-wide btn-gold"
@@ -209,7 +214,6 @@ export default function PackageCard({ pkg, index = 0 }) {
             </a>
           </div>
         </div>
-      </Link>
     </motion.div>
   );
 }

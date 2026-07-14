@@ -40,10 +40,7 @@ let dbReady = null;
 
 function connectDB() {
   if (!dbReady) {
-    dbReady = mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }).then(() => {
+  dbReady = mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URI).then(() => {
       console.log('✅ MongoDB Atlas Connected');
       return mongoose;
     });

@@ -1,4 +1,37 @@
 const partners = [
+    {
+    slug: 'air-tanzania',
+    name: 'Air Tanzania',
+    logo: '/images/partners/air-tanzania.png',
+    tagline: 'The Wings of Kilimanjaro',
+    description:
+      'Air Tanzania is the national carrier of Tanzania, offering flights to key destinations across Africa and beyond. As the gateway to Tanzania\'s legendary safari circuits — Serengeti, Ngorongoro, and Zanzibar — Air Tanzania is an essential partner for travellers seeking authentic Tanzanian experiences.',
+    highlights: ['Tanzania Gateway', 'Serengeti Access', 'Zanzibar Flights', 'National Carrier'],
+    website: 'https://www.airtanzania.co.tz',
+    category: 'Airline',
+  },
+    {
+    slug: 'kenya-airways',
+    name: 'Kenya Airways',
+    logo: '/images/partners/kenya-airways.png',
+    tagline: 'The Pride of Africa',
+    description:
+      'Kenya Airways, Africa\'s premier airline, offers direct flights connecting Nairobi to the world. As the flag carrier of Kenya, it provides unmatched access to East Africa\'s safari destinations, coastal retreats, and business hubs — making it an ideal partner for seamless African travel.',
+    highlights: ['Direct Safari Connections', 'Nairobi Hub', 'East Africa Network', 'SkyTeam Alliance'],
+    website: 'https://www.kenya-airways.com',
+    category: 'Airline',
+  },
+    {
+    slug: 'south-african-airways',
+    name: 'South African Airways',
+    logo: '/images/partners/south-african-airways.png',
+    tagline: 'The Wings of Africa',
+    description:
+      'South African Airways is the continent\'s oldest airline, with a rich heritage of connecting Africa to the world. Operating from OR Tambo International in Johannesburg, SAA provides essential links to Southern Africa\'s most iconic destinations — from Cape Town to the Kruger National Park.',
+    highlights: ['Heritage Carrier', 'Johannesburg Hub', 'Southern Africa Routes', 'African Excellence'],
+    website: 'https://www.flysaa.com',
+    category: 'Airline',
+  },
   {
     slug: 'emirates',
     name: 'Emirates',
@@ -10,17 +43,7 @@ const partners = [
     website: 'https://www.emirates.com',
     category: 'Airline',
   },
-  {
-    slug: 'kenya-airways',
-    name: 'Kenya Airways',
-    logo: '/images/partners/kenya-airways.png',
-    tagline: 'The Pride of Africa',
-    description:
-      'Kenya Airways, Africa\'s premier airline, offers direct flights connecting Nairobi to the world. As the flag carrier of Kenya, it provides unmatched access to East Africa\'s safari destinations, coastal retreats, and business hubs — making it an ideal partner for seamless African travel.',
-    highlights: ['Direct Safari Connections', 'Nairobi Hub', 'East Africa Network', 'SkyTeam Alliance'],
-    website: 'https://www.kenya-airways.com',
-    category: 'Airline',
-  },
+
   {
     slug: 'ethiopian-airlines',
     name: 'Ethiopian Airlines',
@@ -43,28 +66,7 @@ const partners = [
     website: 'https://www.qatarairways.com',
     category: 'Airline',
   },
-  {
-    slug: 'south-african-airways',
-    name: 'South African Airways',
-    logo: '/images/partners/south-african-airways.png',
-    tagline: 'The Wings of Africa',
-    description:
-      'South African Airways is the continent\'s oldest airline, with a rich heritage of connecting Africa to the world. Operating from OR Tambo International in Johannesburg, SAA provides essential links to Southern Africa\'s most iconic destinations — from Cape Town to the Kruger National Park.',
-    highlights: ['Heritage Carrier', 'Johannesburg Hub', 'Southern Africa Routes', 'African Excellence'],
-    website: 'https://www.flysaa.com',
-    category: 'Airline',
-  },
-  {
-    slug: 'air-tanzania',
-    name: 'Air Tanzania',
-    logo: '/images/partners/air-tanzania.png',
-    tagline: 'The Wings of Kilimanjaro',
-    description:
-      'Air Tanzania is the national carrier of Tanzania, offering flights to key destinations across Africa and beyond. As the gateway to Tanzania\'s legendary safari circuits — Serengeti, Ngorongoro, and Zanzibar — Air Tanzania is an essential partner for travellers seeking authentic Tanzanian experiences.',
-    highlights: ['Tanzania Gateway', 'Serengeti Access', 'Zanzibar Flights', 'National Carrier'],
-    website: 'https://www.airtanzania.co.tz',
-    category: 'Airline',
-  },
+
 ];
 
 export default partners;
