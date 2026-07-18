@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FiGrid, FiPackage, FiUser, FiBell, FiFileText, FiCreditCard } from 'react-icons/fi';
+import SEO from '../../components/common/SEO';
 
 const navItems = [
   { label: 'Overview', to: '/dashboard', icon: FiGrid, end: true },
@@ -16,6 +17,7 @@ export default function DashboardLayout() {
 
   return (
     <div className="pt-20 min-h-screen bg-obsidian">
+      <SEO noindex />
       <div className="bg-charcoal border-b border-border pt-10 pb-0">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-5 mb-8">

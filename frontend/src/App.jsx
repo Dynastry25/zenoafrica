@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
@@ -8,35 +8,53 @@ import Footer from './components/layout/Footer';
 import ModalRouter from './components/layout/ModalRouter';
 import ProtectedRoute from './components/common/ProtectedRoute';
 import WhatsAppFloat from './components/common/WhatsAppFloat';
+import { TopBarLoader, PageLoader } from './components/common/RouteLoader';
 import { fetchCurrentUser } from './redux/slices/authSlice';
 
-// Public pages
-import HomePage from './pages/HomePage';
-import PackagesPage from './pages/PackagesPage';
-import PackageDetailPage from './pages/PackageDetailPage';
-import ServicesPage from './pages/ServicesPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import PartnersPage from './pages/PartnersPage';
-import PartnerDetailPage from './pages/PartnerDetailPage';
-import NotFoundPage from './pages/NotFoundPage';
-import { PrivacyPolicyPage, TermsPage, RefundPolicyPage } from './pages/LegalPages';
+// Lazy-loaded public pages
+const HomePage = lazy(() => import('./pages/HomePage'));
+const PackagesPage = lazy(() => import('./pages/PackagesPage'));
+const PackageDetailPage = lazy(() => import('./pages/PackageDetailPage'));
+const ServicesPage = lazy(() => import('./pages/ServicesPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const PartnersPage = lazy(() => import('./pages/PartnersPage'));
+const PartnerDetailPage = lazy(() => import('./pages/PartnerDetailPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
-// Dashboard (User)
-import DashboardLayout from './pages/dashboard/DashboardLayout';
-import DashboardOverview from './pages/dashboard/DashboardOverview';
-import MyBookingsPage from './pages/dashboard/MyBookingsPage';
-import VisaApplicationsPage from './pages/dashboard/VisaApplicationsPage';
-import { PaymentsPage, NotificationsPage, ProfilePage } from './pages/dashboard/MiscPages';
+// Lazy-loaded legal pages (default export is an object, not a component)
+const PrivacyPolicyPage = lazy(() => import('./pages/LegalPages').then(m => ({ default: m.PrivacyPolicyPage })));
+const TermsPage = lazy(() => import('./pages/LegalPages').then(m => ({ default: m.TermsPage })));
+const RefundPolicyPage = lazy(() => import('./pages/LegalPages').then(m => ({ default: m.RefundPolicyPage })));
 
-// Admin
-import { AdminLayout, AdminDashboard, AdminBookingsPage, AdminPackagesPage, AdminVisasPage, AdminUsersPage, AdminReportsPage, AdminEnquiriesPage } from './admin';
+// Lazy-loaded dashboard pages
+const DashboardLayout = lazy(() => import('./pages/dashboard/DashboardLayout'));
+const DashboardOverview = lazy(() => import('./pages/dashboard/DashboardOverview'));
+const MyBookingsPage = lazy(() => import('./pages/dashboard/MyBookingsPage'));
+const VisaApplicationsPage = lazy(() => import('./pages/dashboard/VisaApplicationsPage'));
+const PaymentsPage = lazy(() => import('./pages/dashboard/MiscPages').then(m => ({ default: m.PaymentsPage })));
+const NotificationsPage = lazy(() => import('./pages/dashboard/MiscPages').then(m => ({ default: m.NotificationsPage })));
+const ProfilePage = lazy(() => import('./pages/dashboard/MiscPages').then(m => ({ default: m.ProfilePage })));
+
+// Lazy-loaded admin pages
+const AdminLayout = lazy(() => import('./admin/AdminLayout'));
+const AdminDashboard = lazy(() => import('./admin/AdminDashboard'));
+const AdminBookingsPage = lazy(() => import('./admin/AdminBookingsPage'));
+const AdminPackagesPage = lazy(() => import('./admin/AdminPackagesPage'));
+const AdminVisasPage = lazy(() => import('./admin/AdminVisasPage'));
+const AdminUsersPage = lazy(() => import('./admin/AdminUsersPage'));
+const AdminReportsPage = lazy(() => import('./admin/AdminReportsPage'));
+const AdminEnquiriesPage = lazy(() => import('./admin/AdminEnquiriesPage'));
 
 export default function App() {
   const dispatch = useDispatch();
   const { token } = useSelector((s) => s.auth);
   const { pathname } = useLocation();
   const isAdmin = pathname.startsWith('/admin');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     if (token) {
@@ -46,47 +64,50 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-obsidian">
+      <TopBarLoader />
       {!isAdmin && <Navbar />}
 
       <main>
-        <Routes>
-          {/* Public Routes */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/packages" element={<PackagesPage />} />
-          <Route path="/packages/:slug" element={<PackageDetailPage />} />
-          <Route path="/partners" element={<PartnersPage />} />
-          <Route path="/partners/:slug" element={<PartnerDetailPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/privacy" element={<PrivacyPolicyPage />} />
-          <Route path="/terms" element={<TermsPage />} />
-          <Route path="/refund-policy" element={<RefundPolicyPage />} />
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/packages" element={<PackagesPage />} />
+            <Route path="/packages/:slug" element={<PackageDetailPage />} />
+            <Route path="/partners" element={<PartnersPage />} />
+            <Route path="/partners/:slug" element={<PartnerDetailPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/refund-policy" element={<RefundPolicyPage />} />
 
-          {/* User Dashboard (Protected) */}
-          <Route path="/dashboard" element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
-            <Route index element={<DashboardOverview />} />
-            <Route path="bookings" element={<MyBookingsPage />} />
-            <Route path="visa" element={<VisaApplicationsPage />} />
-            <Route path="payments" element={<PaymentsPage />} />
-            <Route path="notifications" element={<NotificationsPage />} />
-            <Route path="profile" element={<ProfilePage />} />
-          </Route>
+            {/* User Dashboard (Protected) */}
+            <Route path="/dashboard" element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
+              <Route index element={<DashboardOverview />} />
+              <Route path="bookings" element={<MyBookingsPage />} />
+              <Route path="visa" element={<VisaApplicationsPage />} />
+              <Route path="payments" element={<PaymentsPage />} />
+              <Route path="notifications" element={<NotificationsPage />} />
+              <Route path="profile" element={<ProfilePage />} />
+            </Route>
 
-          {/* Admin Panel (Protected + Role-based) */}
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminDashboard />} />
-            <Route path="bookings" element={<AdminBookingsPage />} />
-            <Route path="packages" element={<AdminPackagesPage />} />
-            <Route path="visas" element={<AdminVisasPage />} />
-            <Route path="users" element={<AdminUsersPage />} />
-            <Route path="reports" element={<AdminReportsPage />} />
-            <Route path="enquiries" element={<AdminEnquiriesPage />} />
-          </Route>
+            {/* Admin Panel (Protected + Role-based) */}
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminDashboard />} />
+              <Route path="bookings" element={<AdminBookingsPage />} />
+              <Route path="packages" element={<AdminPackagesPage />} />
+              <Route path="visas" element={<AdminVisasPage />} />
+              <Route path="users" element={<AdminUsersPage />} />
+              <Route path="reports" element={<AdminReportsPage />} />
+              <Route path="enquiries" element={<AdminEnquiriesPage />} />
+            </Route>
 
-          {/* 404 */}
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+            {/* 404 */}
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
       </main>
 
       {!isAdmin && <Footer />}

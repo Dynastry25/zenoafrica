@@ -350,6 +350,13 @@ h1, h2, h3, h4, h5, h6 {
 .animate-ken-burns    { animation: kenBurns 14s ease infinite; }
 .animate-glow         { animation: zaaGlow 2.5s ease-in-out infinite; }
 
+/* ── Loading Bar ──────────────────────────────────────────── */
+@keyframes loadingBar {
+  0%   { transform: translateX(-100%); }
+  50%  { transform: translateX(100%); }
+  100% { transform: translateX(300%); }
+}
+
 /* ── Spinner ──────────────────────────────────────────────────── */
 .spinner {
   width: 40px;

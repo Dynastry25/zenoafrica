@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 import { FiMapPin, FiClock, FiUsers, FiCheck, FiX as FiXIcon, FiCalendar, FiAward } from 'react-icons/fi';
 import toast from 'react-hot-toast';
+import SEO, { tourJsonLd, breadcrumbJsonLd } from '../components/common/SEO';
 import { fetchPackageBySlug, clearCurrentPackage } from '../redux/slices/packageSlice';
 import { setCartPackage } from '../redux/slices/bookingSlice';
 import { openModal } from '../redux/slices/uiSlice';
@@ -47,6 +48,21 @@ export default function PackageDetailPage() {
 
   return (
     <div className="pt-20">
+      <SEO
+        title={pkg.metaTitle || pkg.title}
+        description={pkg.metaDescription || pkg.shortDescription || pkg.description?.slice(0, 160)}
+        image={pkg.coverImage?.url}
+        url={`/packages/${pkg.slug}`}
+        type="article"
+        jsonLd={[
+          tourJsonLd(pkg),
+          breadcrumbJsonLd([
+            { name: 'Home', url: '/' },
+            { name: 'Packages', url: '/packages' },
+            { name: pkg.title, url: `/packages/${pkg.slug}` },
+          ]),
+        ]}
+      />
       {/* Hero Image */}
       <div className="relative h-[40vh] min-h-[280px] md:min-h-[400px]">
         <img src={images[activeImage] || images[0]} alt={pkg.title} className="w-full h-full object-cover" />

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import SEO, { orgJsonLd, breadcrumbJsonLd } from '../components/common/SEO';
 
 const stats = [
   { value: '2,400+', label: 'Happy Travelers', icon: '✈' },
@@ -18,7 +19,16 @@ export default function AboutPage() {
   return (
     <div style={{
         background: ' #f1f1f1',
-      }} className="pt-20">
+    }}>
+      <SEO
+        title="About Us"
+        description="Learn about Zeno Africa Adventures — your trusted partner for luxury safari tours, visa assistance, and travel bookings across Africa since 2020. Meet our expert team."
+        url="/about"
+        jsonLd={breadcrumbJsonLd([
+          { name: 'Home', url: '/' },
+          { name: 'About', url: '/about' },
+        ])}
+      />
       {/* Hero */}
       <div className="relative py-16 md:py-28 overflow-hidden">
         <div

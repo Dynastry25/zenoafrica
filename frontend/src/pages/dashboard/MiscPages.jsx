@@ -218,3 +218,5 @@ export function ProfilePage() {
     </div>
   );
 }
+
+export default { PaymentsPage, NotificationsPage, ProfilePage };

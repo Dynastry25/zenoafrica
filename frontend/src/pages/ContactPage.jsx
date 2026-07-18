@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiPhone, FiMail, FiMapPin, FiClock } from 'react-icons/fi';
 import toast from 'react-hot-toast';
+import SEO, { orgJsonLd, breadcrumbJsonLd } from '../components/common/SEO';
 import { contactAPI } from '../api/axios';
 import { Spinner } from '../components/common/Common';
 
@@ -35,6 +36,15 @@ export default function ContactPage() {
 
   return (
     <div className="pt-20">
+      <SEO
+        title="Contact Us"
+        description="Get in touch with Zeno Africa Adventures. Contact our Africa travel experts for safari bookings, visa assistance, and custom travel planning. Phone, email, or visit us in Dar es Salaam."
+        url="/contact"
+        jsonLd={breadcrumbJsonLd([
+          { name: 'Home', url: '/' },
+          { name: 'Contact', url: '/contact' },
+        ])}
+      />
       <div className="py-16 bg-charcoal text-center border-b border-border">
         <div className="section-eyebrow justify-center">Get in Touch</div>
         <h1 className="text-4xl md:text-6xl font-bold mb-3">Contact <span className="zaa-text">Us</span></h1>

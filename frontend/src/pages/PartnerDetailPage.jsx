@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowLeft, FiExternalLink, FiCheckCircle } from 'react-icons/fi';
+import SEO, { breadcrumbJsonLd } from '../components/common/SEO';
 import { getPartnerBySlug } from '../data/partners';
 
 export default function PartnerDetailPage() {
@@ -10,6 +11,7 @@ export default function PartnerDetailPage() {
   if (!partner) {
     return (
       <div className="pt-20 min-h-screen flex items-center justify-center" style={{ background: '#f1f1f1' }}>
+        <SEO title="Partner Not Found" description="The partner you're looking for doesn't exist." noindex />
         <div className="text-center px-6">
           <h1 className="text-3xl font-black mb-3">Partner Not Found</h1>
           <p className="text-secondary mb-6">The partner you're looking for doesn't exist.</p>
@@ -23,6 +25,17 @@ export default function PartnerDetailPage() {
 
   return (
     <div className="pt-20" style={{ background: '#f1f1f1' }}>
+      <SEO
+        title={partner.name}
+        description={partner.tagline + ' — ' + partner.description?.slice(0, 150)}
+        url={`/partners/${partner.slug}`}
+        type="article"
+        jsonLd={breadcrumbJsonLd([
+          { name: 'Home', url: '/' },
+          { name: 'Partners', url: '/partners' },
+          { name: partner.name, url: `/partners/${partner.slug}` },
+        ])}
+      />
       {/* Hero */}
       <div className="relative py-16 md:py-28 overflow-hidden">
         <div

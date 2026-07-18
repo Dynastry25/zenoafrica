@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiSearch } from 'react-icons/fi';
+import SEO, { breadcrumbJsonLd } from '../components/common/SEO';
 import { fetchPackages, setFilters } from '../redux/slices/packageSlice';
 import PackageCard from '../components/common/PackageCard';
 import { Spinner, EmptyState } from '../components/common/Common';
@@ -47,6 +48,15 @@ export default function PackagesPage() {
           style={{
         background: ' #f1f1f1 100%',
       }}>
+      <SEO
+        title="Safari Packages & Tours"
+        description="Browse our curated collection of luxury safari tours and travel packages across Africa. Find wildlife safaris, adventure tours, cultural experiences and more."
+        url="/packages"
+        jsonLd={breadcrumbJsonLd([
+          { name: 'Home', url: '/' },
+          { name: 'Packages', url: '/packages' },
+        ])}
+      />
       {/* Header */}
       <div           style={{
         background: ' #f1f1f1',

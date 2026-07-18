@@ -2,16 +2,81 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/zaa-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Zeno Africa Adventures — Luxury safari tours, visa assistance, hotel reservations, and flight bookings across Africa." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/zaa-logo.png" />
+    <link rel="apple-touch-icon" href="/zaa-logo.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Base SEO (overridden per-page via react-helmet-async) -->
+    <title>Zeno Africa Adventures | Luxury Safari & Travel in Africa</title>
+    <meta name="description" content="Discover luxury safari tours, visa assistance, hotel reservations, and flight bookings across Africa with Zeno Africa Adventures. Book your dream African safari today." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://zenoafricaadventures.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Zeno Africa Adventures | Luxury Safari & Travel in Africa" />
+    <meta property="og:description" content="Discover luxury safari tours, visa assistance, hotel reservations, and flight bookings across Africa with Zeno Africa Adventures." />
+    <meta property="og:image" content="https://zenoafricaadventures.com/zaa-logo.png" />
+    <meta property="og:url" content="https://zenoafricaadventures.com/" />
+    <meta property="og:site_name" content="Zeno Africa Adventures" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Zeno Africa Adventures | Luxury Safari & Travel in Africa" />
+    <meta name="twitter:description" content="Discover luxury safari tours, visa assistance, hotel reservations, and flight bookings across Africa." />
+    <meta name="twitter:image" content="https://zenoafricaadventures.com/zaa-logo.png" />
+
+    <!-- Theme & PWA -->
     <meta name="theme-color" content="#F4742B" />
+    <meta name="msapplication-TileColor" content="#F4742B" />
+
+    <!-- Organization JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Zeno Africa Adventures",
+      "url": "https://zenoafricaadventures.com",
+      "logo": "https://zenoafricaadventures.com/zaa-logo.png",
+      "description": "Luxury safari tours, visa assistance, hotel reservations, and flight bookings across Africa.",
+      "foundingDate": "2020",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dar es Salaam",
+        "addressCountry": "TZ"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+255-674-448-795",
+        "contactType": "customer service",
+        "email": "zenoafricaadventures@gmail.com",
+        "availableLanguage": ["English"]
+      },
+      "areaServed": {
+        "@type": "Continent",
+        "name": "Africa"
+      }
+    }
+    </script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Playfair+Display:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
-    <title>Zeno Africa Adventures | Luxury Safari & Travel</title>
   </head>
   <body>
+    <noscript>
+      <div style="padding:40px;text-align:center;background:#0D0B09;color:#F5EDE0;font-family:Montserrat,sans-serif">
+        <h1>Zeno Africa Adventures</h1>
+        <p>Luxury safari tours, visa assistance, hotel reservations, and flight bookings across Africa.</p>
+        <p>Please enable JavaScript to use this website.</p>
+        <a href="https://zenoafricaadventures.com/contact" style="color:#F4742B">Contact us at zenoafricaadventures@gmail.com</a>
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

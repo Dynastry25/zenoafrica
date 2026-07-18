@@ -1,11 +1,21 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiExternalLink } from 'react-icons/fi';
+import SEO, { breadcrumbJsonLd } from '../components/common/SEO';
 import partners from '../data/partners';
 
 export default function PartnersPage() {
   return (
     <div className="pt-20" style={{ background: '#f1f1f1' }}>
+      <SEO
+        title="Our Partners"
+        description="Meet Zeno Africa Adventures' trusted partners — leading airlines and travel providers across Africa including Air Tanzania, Kenya Airways, Emirates, Ethiopian Airlines and more."
+        url="/partners"
+        jsonLd={breadcrumbJsonLd([
+          { name: 'Home', url: '/' },
+          { name: 'Partners', url: '/partners' },
+        ])}
+      />
       {/* Hero */}
       <div className="relative py-16 md:py-28 overflow-hidden">
         <div

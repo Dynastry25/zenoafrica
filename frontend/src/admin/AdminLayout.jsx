@@ -1,6 +1,7 @@
 import { NavLink, Outlet, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FiGrid, FiPackage, FiUsers, FiFileText, FiBarChart2, FiHome, FiMessageSquare } from 'react-icons/fi';
+import SEO from '../components/common/SEO';
 
 const navItems = [
   { label: 'Dashboard', to: '/admin', icon: FiGrid, end: true },
@@ -20,6 +21,7 @@ export default function AdminLayout() {
 
   return (
     <div className="min-h-screen bg-obsidian flex">
+      <SEO noindex />
       {/* Sidebar */}
       <aside className="hidden lg:flex flex-col w-64 border-r border-border p-6 fixed top-0 bottom-0 overflow-y-auto">
         <div className="mb-8">
