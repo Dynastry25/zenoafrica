@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-const SITE_URL = 'https://zenoafricaadventures.com';
+const SITE_URL = 'https://www.zenoafricaadventure.co.tz';
 const SITE_NAME = 'Zeno Africa Adventures';
 const DEFAULT_IMAGE = `${SITE_URL}/zaa-logo.png`;
 const TWITTER_HANDLE = '@zenoafrica';
