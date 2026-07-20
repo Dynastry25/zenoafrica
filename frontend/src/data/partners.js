@@ -32,17 +32,6 @@ const partners = [
     website: 'https://www.auricair.com',
     category: 'Airline',
   },
-  {
-    slug: 'satguru',
-    name: 'Satguru Travels',
-    logo: '/images/partners/satguru.jpg',
-    tagline: '360° Travel Solutions',
-    description:
-      'Satguru Travel and Tours Services Ltd. is one of the world\'s largest travel management companies, established in 1989 in Kigali, Rwanda. With 140+ branches in 80+ countries and 4,000+ employees, Satguru specializes in corporate travel management, providing end-to-end solutions including flights, hotels, car rentals, visa services, and holiday packages.',
-    highlights: ['Global Presence', '140+ Branches', 'Corporate Travel', 'Full-Service Travel Management'],
-    website: 'https://satgurutravel.com',
-    category: 'Travel Management',
-  },
     {
     slug: 'kenya-airways',
     name: 'Kenya Airways',

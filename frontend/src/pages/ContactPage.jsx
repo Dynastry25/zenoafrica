@@ -9,7 +9,7 @@ import { Spinner } from '../components/common/Common';
 const contactInfo = [
   { icon: FiPhone, label: 'Phone / WhatsApp', value: '0674 448 795', sub: 'Mon–Sat, 8am–8pm SAST' },
   { icon: FiMail, label: 'Email', value: 'zenoafricaadventures@gmail.com', sub: 'Replies within 2 hours' },
-  { icon: FiMapPin, label: 'Location', value: 'Dar es Salaam, Tanzania', sub: 'Serving all of Africa' },
+  { icon: FiMapPin, label: 'Location', value: 'Victoria Noble Center, Plot No. 89 Block 25B, Bagamoyo Road, Dar es Salaam', sub: 'View on Google Maps', link: 'https://maps.app.goo.gl/E2iqVW3sjGSPKism6?g_st=aw' },
   { icon: FiClock, label: 'Business Hours', value: 'Mon–Sat: 8am–8pm', sub: 'Sun: 10am–4pm SAST' },
 ];
 
@@ -106,15 +106,22 @@ export default function ContactPage() {
             <div className="flex flex-col gap-5 mb-10">
               {contactInfo.map((info) => {
                 const Icon = info.icon;
-                return (
-                  <div key={info.label} className="glass rounded-2xl p-5 flex gap-4 items-start">
+                const Content = (
+                  <div className="glass rounded-2xl p-5 flex gap-4 items-start">
                     <Icon className="text-2xl text-zaa-orange flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="text-xs text-zaa-orange tracking-wide uppercase mb-1">{info.label}</div>
                       <div className="font-semibold text-base">{info.value}</div>
-                      <div className="text-sm text-muted mt-0.5">{info.sub}</div>
+                      <div className="text-sm text-zaa-orange mt-0.5">{info.sub}</div>
                     </div>
                   </div>
+                );
+                return info.link ? (
+                  <a key={info.label} href={info.link} target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+                    {Content}
+                  </a>
+                ) : (
+                  <div key={info.label}>{Content}</div>
                 );
               })}
             </div>

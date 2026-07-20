@@ -18,10 +18,8 @@ const destinationLinks = [
   { label: 'Zimbabwe',      to: '/packages?search=zimbabwe' },
 ];
 const socials = [
-  { Icon: FiFacebook,  href: '#' },
-  { Icon: FiLinkedin,  href: '#' },
-  { Icon: FiTwitter,   href: '#' },
-  { Icon: FiInstagram, href: '#' },
+  { Icon: FiInstagram, href: 'https://www.instagram.com/zenoafrica_adventures?igsh=cWN6dTF1ZWMzZHVs' },
+  { Icon: FiLinkedin,  href: 'https://www.linkedin.com/in/zenobia-fidelius-506686356?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
 ];
 
 export default function Footer() {
@@ -128,10 +126,10 @@ export default function Footer() {
                 <FiMail style={{ color: '#F4742B', flexShrink: 0, marginTop: 2 }} size={14} />
                 <span className="break-all">zenoafricaadventures@gmail.com</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <FiMapPin style={{ color: '#F4742B' }} size={14} />
-                <span>Dar es Salaam, Tanzania </span>
-              </div>
+              <a href="https://maps.app.goo.gl/E2iqVW3sjGSPKism6?g_st=aw" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 group">
+                <FiMapPin style={{ color: '#F4742B', flexShrink: 0, marginTop: 2 }} size={14} />
+                <span className="group-hover:underline">Victoria Noble Center, Plot No. 89 Block 25B,<br/>Bagamoyo Road, Dar es Salaam, Tanzania</span>
+              </a>
               <button
                 onClick={() => dispatch(openModal('contact-quick'))}
                 className="text-sm font-bold mt-1 text-left transition-colors"

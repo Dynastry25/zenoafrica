@@ -9,10 +9,9 @@ const stats = [
 ];
 
 const team = [
-  { name: 'Zeno Mokoena', role: 'Founder & CEO', initials: 'ZM', bio: 'With 20 years of guiding experience across Africa, Zeno built ZAA on the belief that every traveller deserves a transformative African journey.' },
-  { name: 'Amara Diallo', role: 'Head of Safaris', initials: 'AD', bio: "Former wildlife biologist turned safari architect. Amara's expert knowledge of African ecosystems ensures every game drive is extraordinary." },
-  { name: 'Sophie Ndlovu', role: 'Visa Specialist', initials: 'SN', bio: 'Certified immigration consultant with 10+ years navigating African visa requirements. Sophie makes the complex simple.' },
-  { name: 'Kofi Mensah', role: 'Operations Director', initials: 'KM', bio: 'Logistics maestro who ensures every transfer, check-in, and activity runs seamlessly — so guests only experience perfection.' },
+  { name: 'Zenobia Nyendo', role: 'Founder & CEO', initials: 'ZN', bio: 'With over two decades of guiding experience across the Serengeti, Ngorongoro, and beyond, Zenobia founded ZAA on a simple promise — that every traveller deserves more than a holiday. They deserve a transformation.' },
+  { name: 'Clementina Komu', role: 'Operations Coordinator', initials: 'CK', bio: 'The nerve centre of ZAA — Clementina coordinates every booking, itinerary, and client enquiry with meticulous attention to detail. If there is a moving part behind the scenes, Clementina is making sure it moves on time.' },
+  { name: 'Joseph Makingi', role: 'Safari Operations Manager', initials: 'JM', bio: 'Raised in the shadow of Kilimanjaro, Joseph brings encyclopaedic knowledge of Tanzania\'s parks and lodges to every itinerary. He leads our ground operations with precision — from vehicle dispatch to lodge partnerships — so nothing is left to chance.' },
 ];
 
 export default function AboutPage() {

@@ -63,6 +63,7 @@ export const orgJsonLd = {
   foundingDate: '2020',
   address: {
     '@type': 'PostalAddress',
+    streetAddress: 'Victoria Noble Center, Plot No. 89 Block 25B, Bagamoyo Road',
     addressLocality: 'Dar es Salaam',
     addressCountry: 'TZ',
   },
@@ -73,7 +74,10 @@ export const orgJsonLd = {
     email: 'zenoafricaadventures@gmail.com',
     availableLanguage: ['English'],
   },
-  sameAs: [],
+  sameAs: [
+    'https://www.instagram.com/zenoafrica_adventures',
+    'https://www.linkedin.com/in/zenobia-fidelius-506686356',
+  ],
   areaServed: {
     '@type': 'Continent',
     name: 'Africa',

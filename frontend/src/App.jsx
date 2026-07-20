@@ -8,6 +8,7 @@ import Footer from './components/layout/Footer';
 import ModalRouter from './components/layout/ModalRouter';
 import ProtectedRoute from './components/common/ProtectedRoute';
 import WhatsAppFloat from './components/common/WhatsAppFloat';
+import InstagramFloat from './components/common/InstagramFloat';
 import { TopBarLoader, PageLoader } from './components/common/RouteLoader';
 import { fetchCurrentUser } from './redux/slices/authSlice';
 
@@ -129,6 +130,7 @@ export default function App() {
         }}
       />
       {!isAdmin && <WhatsAppFloat />}
+      {!isAdmin && <InstagramFloat />}
     </div>
   );
 }
