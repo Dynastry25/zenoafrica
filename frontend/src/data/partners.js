@@ -21,6 +21,17 @@ const partners = [
     website: 'https://flightlink.co.tz',
     category: 'Airline',
   },
+    {
+    slug: 'precision-air',
+    name: 'Precision Air',
+    logo: '/images/partners/Precision-air.png',
+    tagline: 'The Pride of Tanzania',
+    description:
+      'Precision Air is Tanzania\'s leading private airline, offering scheduled and charter flights across Tanzania and East Africa. Operating from Julius Nyerere International Airport in Dar es Salaam, Precision Air connects travellers to key safari destinations including Serengeti, Arusha, Kilimanjaro, and Zanzibar — making it an essential domestic partner for Zeno Africa Adventures.',
+    highlights: ['Tanzania Domestic Leader', 'Serengeti & Kilimanjaro Routes', 'Charter Services', 'Dar es Salaam Hub'],
+    website: 'https://www.precisionairtz.com',
+    category: 'Airline',
+  },
   {
     slug: 'auric-air',
     name: 'Auric Air',
@@ -88,6 +99,7 @@ const partners = [
     website: 'https://www.qatarairways.com',
     category: 'Airline',
   },
+
 
 ];
 

@@ -7,7 +7,7 @@ import { contactAPI } from '../api/axios';
 import { Spinner } from '../components/common/Common';
 
 const contactInfo = [
-  { icon: FiPhone, label: 'Phone / WhatsApp', value: '0674 448 795', sub: 'Mon–Sat, 8am–8pm SAST' },
+  { icon: FiPhone, label: 'Phone / WhatsApp', value: '+255 718 004 525', sub: 'Mon–Sat, 8am–8pm SAST' },
   { icon: FiMail, label: 'Email', value: 'zenoafricaadventures@gmail.com', sub: 'Replies within 2 hours' },
   { icon: FiMapPin, label: 'Location', value: 'Victoria Noble Center, Plot No. 89 Block 25B, Bagamoyo Road, Dar es Salaam', sub: 'View on Google Maps', link: 'https://maps.app.goo.gl/E2iqVW3sjGSPKism6?g_st=aw' },
   { icon: FiClock, label: 'Business Hours', value: 'Mon–Sat: 8am–8pm', sub: 'Sun: 10am–4pm SAST' },
